@@ -435,6 +435,7 @@ header nav a:hover,
 
 .project-array-hover .project-carousel {
   padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .project-array-closing {
@@ -505,7 +506,7 @@ header nav a:hover,
 .button-code-hover::before,
 .button-code-hover::after {
   position: absolute;
-  top: 50%;
+  top: calc(50% - 4px);
   color: rgba(255, 255, 255, 0.35);
   content: attr(data-code-before);
   font-family: monospace;
@@ -514,7 +515,7 @@ header nav a:hover,
   opacity: 0;
   pointer-events: none;
   white-space: nowrap;
-  transform: translateY(calc(-50% + 4px));
+  transform: translateY(calc(-50% + 8px));
   transition:
     opacity 0.55s ease,
     transform 0.55s ease,
@@ -981,6 +982,18 @@ footer {
 }
 
 @media (max-width: 767px) {
+  .code-signature,
+  #home h1 .name-code-muted,
+  .skill-array-token,
+  .project-array-token,
+  .about-code-muted,
+  .button-code-hover::before,
+  .button-code-hover::after,
+  .section-code-hover::before,
+  .section-code-hover::after {
+    display: none;
+  }
+
   #home h1 {
     font-size: clamp(2.7rem, 12vw, 5rem);
   }

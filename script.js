@@ -160,9 +160,13 @@ if (projectArray && projectTrack) {
   projectOpening.textContent = "[";
   projectTrack.prepend(projectOpening);
   projectTrack.prepend(projectPrefix);
+  const projectClosing = document.createElement("span");
+  projectClosing.className = "project-array-token";
+  projectClosing.textContent = "]";
+  projectTrack.append(projectClosing);
 
   projectCards.forEach((card, index) => {
-    if (index === projectCards.length - 1) return;
+    //if (index === projectCards.length - 1) return;
 
     const comma = document.createElement("span");
     comma.className = "project-array-token";
@@ -182,8 +186,10 @@ if (projectArray && projectTrack) {
     };
 
     const codeLineTop = firstCard.offsetTop - 28;
+    const codeLineBot = lastCard.offsetTop + lastCard.offsetHeight + 28;
     centerToken(projectPrefix, 0, codeLineTop);
     centerToken(projectOpening, projectPrefix.offsetWidth + 8, codeLineTop);
+    centerToken(projectClosing, 0, codeLineBot);
 
     projectCards.forEach((card, index) => {
       const comma = card.nextElementSibling;
