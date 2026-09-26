@@ -104,7 +104,7 @@ if (skillsTags) {
 
   const closingBracket = document.createElement("span");
   closingBracket.className = "skill-array-token skill-array-closing";
-  closingBracket.textContent = "]";
+  closingBracket.textContent = "];";
   skillsTags.append(closingBracket);
 
   const positionArrayTokens = () => {
@@ -162,11 +162,11 @@ if (projectArray && projectTrack) {
   projectTrack.prepend(projectPrefix);
   const projectClosing = document.createElement("span");
   projectClosing.className = "project-array-token";
-  projectClosing.textContent = "]";
+  projectClosing.textContent = "];";
   projectTrack.append(projectClosing);
 
   projectCards.forEach((card, index) => {
-    //if (index === projectCards.length - 1) return;
+    if (index === projectCards.length - 1) return;
 
     const comma = document.createElement("span");
     comma.className = "project-array-token";
@@ -193,7 +193,11 @@ if (projectArray && projectTrack) {
 
     projectCards.forEach((card, index) => {
       const comma = card.nextElementSibling;
-      if (!comma?.classList.contains("project-array-token")) return;
+      if (
+        !comma?.classList.contains("project-array-token") ||
+        index === projectCards.length - 1
+      )
+        return;
       centerToken(
         comma,
         card.offsetLeft + card.offsetWidth + 8,
