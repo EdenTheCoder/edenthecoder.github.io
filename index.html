@@ -18,9 +18,6 @@
     <style></style>
   </head>
   <body class="antialiased relative">
-    <div class="bg-orb orb-1"></div>
-    <div class="bg-orb orb-2"></div>
-
     <header class="fixed w-full top-0 z-50 glass-nav">
       <div
         class="container mx-auto px-6 py-4 flex justify-between items-center"
@@ -105,16 +102,27 @@
         id="home"
         class="min-h-screen flex items-center justify-center pt-20 relative"
       >
+        <div class="code-signature" aria-label="Java method signature">
+          <span class="code-keyword">public static void</span>
+          <span class="code-method">portfolio</span><span>()</span>
+          <span class="code-muted">{</span>
+        </div>
         <div class="container mx-auto px-6 text-center z-10 reveal">
           <p
             class="text-[var(--color-1)] font-semibold tracking-wide mb-4 uppercase text-sm"
           >
-            Builder • Tinkerer • Learner
+            Software • Automation • Hardware
           </p>
           <h1
             class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight"
           >
-            Eden <span class="text-gradient">Marks</span>
+            <span class="name-code-target" tabindex="0">
+              <span class="name-code-muted" aria-hidden="true"
+                >String name = &quot;</span
+              ><span class="name-display"
+                >Eden <span class="text-gradient">Marks</span></span
+              ><span class="name-code-muted" aria-hidden="true">&quot;;</span>
+            </span>
           </h1>
           <h2
             class="text-2xl md:text-3xl text-gray-400 font-light mb-8 max-w-2xl mx-auto"
@@ -137,6 +145,16 @@
             >
               <i class="fab fa-github"></i> GitHub
             </a>
+          </div>
+          <div
+            class="hero-signal"
+            aria-label="Currently building Class Finder with Python and Flet"
+          >
+            <span class="signal-pulse" aria-hidden="true"></span>
+            <span class="signal-label">Currently building</span>
+            <strong>Class Finder</strong>
+            <span class="signal-divider" aria-hidden="true">#</span>
+            <span>Python + Flet</span>
           </div>
         </div>
       </section>
@@ -164,18 +182,30 @@
               >
                 About <span class="text-gradient">Me</span>
               </h2>
-              <p class="text-gray-400 text-lg leading-relaxed mb-6">
-                I am a student developer who likes building useful things and
-                learning by doing. My work mixes software projects, smart home
-                automation, and hands-on hardware experiments.
-              </p>
-              <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                I enjoy Java and Python most, but I also spend a lot of time
-                working with Home Assistant, home automation, and ESP32
-                projects. I use Linux as my daily driver and like taking ideas
-                from concept to working setup and improving them through real
-                use.
-              </p>
+              <div class="about-code-hover">
+                <span
+                  class="about-code-muted about-code-open"
+                  aria-hidden="true"
+                  >String about = &quot;&quot;&quot;</span
+                >
+                <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                  I am a student developer who likes building useful things and
+                  learning by doing. My work mixes software projects, smart home
+                  automation, and hands-on hardware experiments.
+                </p>
+                <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                  I enjoy Java and Python most, but I also spend a lot of time
+                  working with Home Assistant, home automation, and ESP32
+                  projects. I use Linux as my daily driver and like taking ideas
+                  from concept to working setup and improving them through real
+                  use.
+                </p>
+                <span
+                  class="about-code-muted about-code-close"
+                  aria-hidden="true"
+                  >&quot;&quot;&quot;;</span
+                >
+              </div>
             </div>
           </div>
         </div>
@@ -186,8 +216,10 @@
           <h2 class="text-3xl md:text-4xl font-bold mb-12 text-white">
             <span class="text-gradient">Skills</span>
           </h2>
-
-          <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+          <div
+            class="skills-tags flex flex-wrap justify-center gap-4 max-w-4xl mx-auto"
+            tabindex="0"
+          >
             <!-- Tech Stack Tags -->
             <div
               class="skill-tag skill-favorite px-6 py-3 rounded-full flex items-center gap-2 cursor-default"
@@ -262,7 +294,8 @@
             Selected <span class="text-gradient">Work</span>
           </h2>
 
-          <div class="project-carousel-shell">
+          <div class="project-carousel-shell project-array-hover">
+            <span class="project-array-closing" aria-hidden="true">]</span>
             <button
               class="carousel-btn prev"
               type="button"
@@ -476,12 +509,18 @@
             smart home idea, or a small hardware build. If you want to talk
             about code, automation, or creative tech, feel free to reach out.
           </p>
-          <a
-            href="mailto:me@edenmarks.me"
-            class="btn-neon px-10 py-4 rounded-full font-bold text-lg inline-block mb-16"
+          <span
+            class="button-code-hover"
+            data-code-before="void connect() {"
+            data-code-after="}"
           >
-            Send me an Email
-          </a>
+            <a
+              href="mailto:me@edenmarks.me"
+              class="btn-neon px-10 py-4 rounded-full font-bold text-lg inline-block"
+            >
+              Send me an Email
+            </a>
+          </span>
 
           <div class="flex justify-center gap-8 text-3xl">
             <a
@@ -502,6 +541,7 @@
     </main>
 
     <footer class="border-t border-white/5 py-8 text-center bg-black/60">
+      <div class="footer-brace" aria-hidden="true">}</div>
       <p class="text-gray-600 text-sm">
         Designed & Built by <span class="text-gray-300">Eden Marks</span> &copy;
         <script>
@@ -510,100 +550,6 @@
       </p>
     </footer>
 
-    <script>
-      // Mobile menu toggle
-      const mobileBtn = document.getElementById("mobile-menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const projectTrack = document.getElementById("project-track");
-      const prevProjectBtn = document.querySelector(".carousel-btn.prev");
-      const nextProjectBtn = document.querySelector(".carousel-btn.next");
-      const projectDots = document.getElementById("project-dots");
-
-      if (projectTrack && prevProjectBtn && nextProjectBtn && projectDots) {
-        const cards = Array.from(projectTrack.children);
-        let currentIndex = 0;
-
-        const getVisibleCards = () => {
-          if (window.innerWidth < 640) return 1;
-          if (window.innerWidth < 1024) return 2;
-          return 3;
-        };
-
-        const updateCarousel = () => {
-          const cardWidth = cards[0].getBoundingClientRect().width + 24;
-          const visibleCards = getVisibleCards();
-          const maxIndex = Math.max(0, cards.length - visibleCards);
-          currentIndex = Math.min(currentIndex, maxIndex);
-          projectTrack.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-          prevProjectBtn.disabled = currentIndex === 0;
-          nextProjectBtn.disabled = currentIndex === maxIndex;
-          projectDots.replaceChildren();
-
-          for (let index = 0; index <= maxIndex; index += 1) {
-            const dot = document.createElement("button");
-            dot.type = "button";
-            dot.className = "carousel-dot";
-            dot.setAttribute("aria-label", `Show project group ${index + 1}`);
-            dot.classList.toggle("active", index === currentIndex);
-            dot.addEventListener("click", () => {
-              currentIndex = index;
-              updateCarousel();
-            });
-            projectDots.appendChild(dot);
-          }
-        };
-
-        prevProjectBtn.addEventListener("click", () => {
-          currentIndex = Math.max(0, currentIndex - 1);
-          updateCarousel();
-        });
-
-        nextProjectBtn.addEventListener("click", () => {
-          const maxIndex = Math.max(0, cards.length - getVisibleCards());
-          currentIndex = Math.min(maxIndex, currentIndex + 1);
-          updateCarousel();
-        });
-
-        window.addEventListener("resize", updateCarousel);
-        updateCarousel();
-      }
-
-      mobileBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-
-      // Close mobile menu on link click
-      mobileMenu.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          mobileMenu.classList.add("hidden");
-        });
-      });
-
-      // Scroll Reveal Animation via Intersection Observer
-      const revealElements = document.querySelectorAll(".reveal");
-
-      const revealOptions = {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px",
-      };
-
-      const revealOnScroll = new IntersectionObserver(function (
-        entries,
-        observer,
-      ) {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            return;
-          } else {
-            entry.target.classList.add("active");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, revealOptions);
-
-      revealElements.forEach((el) => {
-        revealOnScroll.observe(el);
-      });
-    </script>
+    <script src="script.js" defer></script>
   </body>
 </html>
